@@ -3,33 +3,31 @@ document.addEventListener('DOMContentLoaded', function () {
     var menu = document.querySelector('#menu-icon');
     var navlist = document.querySelector('.navlist');
 
-    if (header) {
-        // Initial check to see if the header should be hidden
+    // Function to handle header visibility on scroll
+    function handleScroll() {
         if (window.scrollY > 50) {
             header.classList.add('hidden-nav');
+        } else {
+            header.classList.remove('hidden-nav');
         }
-
-        // Add event listener for scroll to toggle header visibility
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 50) {
-                header.classList.add('hidden-nav');
-            } else {
-                header.classList.remove('hidden-nav');
-            }
-        });
     }
 
+    // Check if header exists and initialize its state
+    if (header) {
+        handleScroll(); // Initialize the header state on page load
+        window.addEventListener('scroll', handleScroll); // Add scroll event listener
+    }
+
+    // Check if menu and navlist exist and set up the click event listener
     if (menu && navlist) {
-        // Toggle menu and navlist classes on menu icon click
         menu.addEventListener('click', function () {
             menu.classList.toggle('bx-x');
             navlist.classList.toggle('open');
         });
     }
 
-    // Check if ScrollReveal is defined
+    // Check if ScrollReveal is defined and set up the reveals
     if (typeof ScrollReveal !== 'undefined') {
-        // ScrollReveal configuration
         const sr = ScrollReveal({
             distance: '65px',
             duration: 2600,
@@ -37,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
             reset: true
         });
 
-        // Reveal elements with ScrollReveal
         sr.reveal('.tattoo-text', { delay: 200, origin: 'top' });
         sr.reveal('.tattoo-image', { delay: 450, origin: 'top' });
         sr.reveal('.icons', { delay: 500, origin: 'right' });
