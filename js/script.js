@@ -1,14 +1,19 @@
-document.addEventListener('DOMContentLoaded', function () {
+window.onload = function() {
+    console.log('Page entièrement chargée');
+
     var header = document.querySelector('header');
     var menu = document.querySelector('#menu-icon');
     var navlist = document.querySelector('.navlist');
 
     // Function to handle header visibility on scroll
     function handleScroll() {
+        console.log('Défilement détecté, position:', window.scrollY);
         if (window.scrollY > 50) {
             header.classList.add('hidden-nav');
+            console.log('Ajout de la classe hidden-nav');
         } else {
             header.classList.remove('hidden-nav');
+            console.log('Suppression de la classe hidden-nav');
         }
     }
 
@@ -16,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (header) {
         handleScroll(); // Initialize the header state on page load
         window.addEventListener('scroll', handleScroll); // Add scroll event listener
+        console.log('Écouteur de défilement ajouté');
+    } else {
+        console.error('Élément header non trouvé');
     }
 
     // Check if menu and navlist exist and set up the click event listener
@@ -23,7 +31,10 @@ document.addEventListener('DOMContentLoaded', function () {
         menu.addEventListener('click', function () {
             menu.classList.toggle('bx-x');
             navlist.classList.toggle('open');
+            console.log('Menu toggle');
         });
+    } else {
+        console.error('Menu ou navlist non trouvé');
     }
 
     // Check if ScrollReveal is defined and set up the reveals
@@ -43,7 +54,9 @@ document.addEventListener('DOMContentLoaded', function () {
         sr.reveal('.contact-info', { delay: 300, origin: 'top' });
         sr.reveal('.map', { delay: 400, origin: 'top' });
         sr.reveal('.contact-texte', { delay: 200, origin: 'top' });
+        
+        console.log('ScrollReveal configuré');
     } else {
-        console.error('ScrollReveal is not defined');
+        console.error('ScrollReveal non défini');
     }
-});
+};
