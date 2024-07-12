@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function () {
-    console.log('DOM entièrement chargé et analysé');
+window.onload = function() {
+    console.log('Page entièrement chargée');
 
     var header = document.querySelector('header');
     var menu = document.querySelector('#menu-icon');
@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to handle header visibility on scroll
     function handleScroll() {
-        console.log('Défilement détecté, position:', window.scrollY);
         if (window.scrollY > 50) {
             header.classList.add('hidden-nav');
             console.log('Ajout de la classe hidden-nav');
@@ -17,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Initialiser l'état du header
+    // Check if header exists and initialize its state
     if (header) {
         handleScroll(); // Initialize the header state on page load
         window.addEventListener('scroll', handleScroll); // Add scroll event listener
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Élément header non trouvé');
     }
 
-    // Configuration du menu
+    // Check if menu and navlist exist and set up the click event listener
     if (menu && navlist) {
         menu.addEventListener('click', function () {
             menu.classList.toggle('bx-x');
@@ -37,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Menu ou navlist non trouvé');
     }
 
-    // Configuration de ScrollReveal
+    // Check if ScrollReveal is defined and set up the reveals
     if (typeof ScrollReveal !== 'undefined') {
         const sr = ScrollReveal({
             distance: '65px',
@@ -54,9 +53,9 @@ document.addEventListener('DOMContentLoaded', function () {
         sr.reveal('.contact-info', { delay: 300, origin: 'top' });
         sr.reveal('.map', { delay: 400, origin: 'top' });
         sr.reveal('.contact-texte', { delay: 200, origin: 'top' });
-
+        
         console.log('ScrollReveal configuré');
     } else {
         console.error('ScrollReveal non défini');
     }
-});
+};
