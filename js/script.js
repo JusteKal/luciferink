@@ -9,10 +9,8 @@ window.onload = function() {
     function handleScroll() {
         if (window.scrollY > 50) {
             header.classList.add('hidden-nav');
-            console.log('Ajout de la classe hidden-nav');
         } else {
             header.classList.remove('hidden-nav');
-            console.log('Suppression de la classe hidden-nav');
         }
     }
 
@@ -20,7 +18,6 @@ window.onload = function() {
     if (header) {
         handleScroll(); // Initialize the header state on page load
         window.addEventListener('scroll', handleScroll); // Add scroll event listener
-        console.log('Écouteur de défilement ajouté');
     } else {
         console.error('Élément header non trouvé');
     }
@@ -54,7 +51,6 @@ window.onload = function() {
         sr.reveal('.map', { delay: 400, origin: 'top' });
         sr.reveal('.contact-texte', { delay: 200, origin: 'top' });
         
-        console.log('ScrollReveal configuré');
     } else {
         console.error('ScrollReveal non défini');
     }
