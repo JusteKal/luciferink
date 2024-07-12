@@ -1,9 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
     var header = document.querySelector('header');
+    var menu = document.querySelector('#menu-icon');
+    var navlist = document.querySelector('.navlist');
+
+    // Initial check to see if the header should be hidden
     if (window.scrollY > 50) {
         header.classList.add('hidden-nav');
     }
 
+    // Add event listener for scroll to toggle header visibility
     window.addEventListener('scroll', function () {
         if (window.scrollY > 50) {
             header.classList.add('hidden-nav');
@@ -12,14 +17,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    let menu = document.querySelector('#menu-icon');
-    let navlist = document.querySelector('.navlist');
-    
-    menu.onclick = () => {
+    // Toggle menu and navlist classes on menu icon click
+    menu.onclick = function () {
         menu.classList.toggle('bx-x');
         navlist.classList.toggle('open');
     }
 
+    // ScrollReveal configuration
     const sr = ScrollReveal({
         distance: '65px',
         duration: 2600,
@@ -27,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
         reset: true
     });
 
+    // Reveal elements with ScrollReveal
     sr.reveal('.tattoo-text', { delay: 200, origin: 'top' });
     sr.reveal('.tattoo-image', { delay: 450, origin: 'top' });
     sr.reveal('.icons', { delay: 500, origin: 'right' });
