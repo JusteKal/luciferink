@@ -10,9 +10,9 @@
 {
     :root
     {
-    --body-background-color:linear-gradient(245.59deg, #1c1c1c 0%, #080706 28.53%, #080808 75.52%);
-    --btn-background-color:#1c1c1c;
-    --footer-background-color:#1c1c1c;
+    --body-background-color:#339933;
+    --btn-background-color:#689668;
+    --footer-background-color:#339933;
     --focus-color:#f01e2f;
     }
 }
@@ -45,14 +45,14 @@
     .logo-texte{
         font-size: 30px;
         font-weight: 700;
-        color: #ae2a2e;
+        color: white;
     }
     
     .logo{
         font-size: 30px;
         font-family: 'Anton', sans-serif;
-        font-weight: 700;
-        color: #ae2a2e;
+        font-weight: 500;
+        color: white;
     }
     
     .navlist{
